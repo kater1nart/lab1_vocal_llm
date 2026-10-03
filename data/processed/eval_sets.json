@@ -1,0 +1,50 @@
+{
+  "near_dup_threshold": 0.995,
+  "near_dup_pairs_cross_split": 3,
+  "dropped_from_val_test": 3,
+  "examples": [
+    [
+      27934,
+      13744,
+      0.9981567859649658
+    ],
+    [
+      27942,
+      13752,
+      0.9950684309005737
+    ],
+    [
+      4883,
+      29403,
+      0.9953130483627319
+    ]
+  ],
+  "final_counts": {
+    "test": {
+      "female": 254,
+      "group": 144,
+      "instrumental": 350,
+      "male": 261
+    },
+    "train": {
+      "female": 1266,
+      "group": 724,
+      "instrumental": 1755,
+      "male": 1326
+    },
+    "val": {
+      "female": 253,
+      "group": 149,
+      "instrumental": 350,
+      "male": 267
+    }
+  },
+  "cmp_test_size": 200,
+  "full_test_size": 1009,
+  "few_shot_clip_ids": {
+    "male": 15529,
+    "female": 12553,
+    "group": 35548,
+    "instrumental": 11219
+  }
+}

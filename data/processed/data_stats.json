@@ -1,0 +1,42 @@
+{
+  "clips_total": 25863,
+  "no_vocal_tags": 18662,
+  "conflict_vocal_and_instrumental": 95,
+  "empty_mp3_path": 0,
+  "dup_mp3_path": 0,
+  "labeled_clips": 7106,
+  "unique_tracks": 3421,
+  "unique_artists": 230,
+  "class_counts": {
+    "instrumental": 2455,
+    "male": 1858,
+    "female": 1775,
+    "group": 1018
+  },
+  "clips_per_track_mean": 2.077170418006431,
+  "artist_overlap": {
+    "train_val": 0,
+    "train_test": 0,
+    "val_test": 0
+  },
+  "split_class_counts": {
+    "test": {
+      "female": 254,
+      "group": 144,
+      "instrumental": 350,
+      "male": 262
+    },
+    "train": {
+      "female": 1266,
+      "group": 725,
+      "instrumental": 1755,
+      "male": 1329
+    },
+    "val": {
+      "female": 255,
+      "group": 149,
+      "instrumental": 350,
+      "male": 267
+    }
+  }
+}
