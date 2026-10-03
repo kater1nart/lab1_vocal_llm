@@ -11,6 +11,7 @@ REP = ROOT / "report"
 
 
 def add_runs(par, text):
+    text = text.replace("\\*", "*")
     # **жирный**, `код`, [текст](ссылка) -> "текст (ссылка)"
     text = re.sub(r"\[([^\]]+)\]\(([^)]+)\)", r"\1 (\2)", text)
     for tok in re.split(r"(\*\*[^*]+\*\*|`[^`]+`|\*[^*]+\*)", text):
@@ -29,7 +30,8 @@ def add_runs(par, text):
 
 
 def add_table(doc, rows):
-    cells = [[c.strip() for c in r.strip().strip("|").split("|")] for r in rows]
+    cells = [[c.strip().replace("\x00", "|") for c in r.replace("\\|", "\x00").strip().strip("|").split("|")]
+             for r in rows]
     cells = [r for r in cells if not all(re.fullmatch(r":?-+:?", c) for c in r)]
     t = doc.add_table(rows=len(cells), cols=len(cells[0]))
     t.style = "Table Grid"
@@ -72,11 +74,13 @@ def convert(md, doc):
             cap.alignment = WD_ALIGN_PARAGRAPH.CENTER
         elif ln.startswith("#"):
             level = len(ln) - len(ln.lstrip("#"))
-            doc.add_heading(ln.lstrip("#").strip(), level=min(level, 3))
+            doc.add_heading(ln.lstrip("#").strip().replace("`", ""), level=min(level, 3))
         elif re.match(r"^\s*[-*] ", ln):
             add_runs(doc.add_paragraph(style="List Bullet"), re.sub(r"^\s*[-*] ", "", ln))
         elif re.match(r"^\s*\d+\. ", ln):
-            add_runs(doc.add_paragraph(style="List Number"), re.sub(r"^\s*\d+\. ", "", ln))
+            par = doc.add_paragraph()  # номер из markdown сохраняем текстом: List Number в python-docx сквозной
+            par.paragraph_format.left_indent = Cm(0.6)
+            add_runs(par, ln.strip())
         elif ln.strip():
             add_runs(doc.add_paragraph(), ln)
         i += 1

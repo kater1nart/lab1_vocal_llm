@@ -196,6 +196,7 @@ class GigaChatVLM:
 MODELS = {
     "gigachat2max": lambda: GigaChatVLM("GigaChat-2-Max"),
     "qwen25vl7b": lambda: MLXVLM("mlx-community/Qwen2.5-VL-7B-Instruct-4bit"),
+    "qwen25vl3b": lambda: MLXVLM("mlx-community/Qwen2.5-VL-3B-Instruct-4bit"),
     "qwen25vl32b": lambda: MLXVLM("mlx-community/Qwen2.5-VL-32B-Instruct-4bit"),
     "gemma3_4b": lambda: MLXVLM("mlx-community/gemma-3-4b-it-4bit"),
     "qwen2audio7b": lambda: Qwen2Audio("Qwen/Qwen2-Audio-7B-Instruct"),

@@ -24,7 +24,7 @@ INVALID = "invalid"
 # Цены USD за 1M токенов (input, output) у API-провайдеров на 2026-10-03, см. отчёт:
 # gemma-3-4b-it — OpenRouter API; Qwen2.5-VL-7B/32B — pricepertoken.com (верхняя оценка, Fireworks для 32B);
 # GigaChat-2-Max — пакет 1950 руб / 3M токенов = 650 руб/1M, пересчёт по 1 USD = 81 руб.
-PRICES = {"gemma3_4b": (0.05, 0.10), "qwen25vl7b": (0.20, 0.20), "qwen25vl32b": (0.90, 0.90),
+PRICES = {"gemma3_4b": (0.05, 0.10), "qwen25vl3b": (0.20, 0.20), "qwen25vl7b": (0.20, 0.20), "qwen25vl32b": (0.90, 0.90),
           "gigachat2max": (650 / 81, 650 / 81), "gemini25flash": (0.30, 2.50)}
 
 
